@@ -16,14 +16,21 @@
 
 .btn{
     font-family: 'Indie Flower', cursive;
-    background-color: #4ECCA3;
-    border: 0;
+    background-color: transparent;
+    border: 1.5px solid #00d7c3;
     border-radius: 100px;
     box-sizing: border-box;
-    color: #ffffff;
+    color: #00d7c3;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
     cursor: pointer;
     padding : 2% 4%;
     font-size: 1.5rem;
+}
+
+.btn:hover {
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 10px 2px #00d7c3;
+  border: 1.5px solid #00d7c3;
 }
 
 body {
