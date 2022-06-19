@@ -1,31 +1,39 @@
-function randomNumGen(min,max){
-    return Math.floor(Math.random() * max) + min;
+function randomNumGen(min, max) {
+  return Math.floor(Math.random() * max) + min;
 }
 
-function decideWinner(num1,num2){
-    if(num1 > num2){
-        document.querySelector("h1").innerHTML = "✔ PLAYER 1 WINS !"
-    }else if(num1 < num2){
-        document.querySelector("h1").innerHTML = "✔ PLAYER 2 WINS !" 
-    }else{
-        document.querySelector("h1").innerHTML = "DRAW !"
-    }
-    return null;
+function setRandomDiceImg(diceIndex, randomValue) {
+  dice[diceIndex].setAttribute("src", "./images/dice" + randomValue + ".png");
 }
 
-let randomNum1 = randomNumGen(1,6);
-let randomNum2 = randomNumGen(1,6);
+function decideWinner(num1, num2) {
+  if (num1 > num2) {
+    heading.innerHTML = "✔ PLAYER 1 WINS !";
+  } else if (num1 < num2) {
+    heading.innerHTML = "✔ PLAYER 2 WINS !";
+  } else {
+    heading.innerHTML = "DRAW !";
+  }
+  return null;
+}
 
-console.log(randomNum1,randomNum2);
-
+let randomNum1;
+let randomNum2;
 let dice = document.querySelectorAll("img");
+let button = document.getElementsByClassName("btn")[0];
+let heading = document.querySelector("h1");
 
-dice[0].setAttribute("src","./images/dice" + randomNum1 + ".png")
-dice[1].setAttribute("src","./images/dice" + randomNum2 + ".png")
-
-document.getElementsByClassName('btn')[0].addEventListener('click', function(e){
-    window.location.reload();
-    return false;
+button.addEventListener("click", function (e) {
+  randomNum1 = randomNumGen(1, 6);
+  randomNum2 = randomNumGen(1, 6);
+  if ((button.innerText = "Refresh Me")) {
+    setRandomDiceImg(0, randomNum1);
+    setRandomDiceImg(1, randomNum2);
+  } else {
+    button.innerHTML = "Refresh Me";
+    setRandomDiceImg(0, randomNum1);
+    setRandomDiceImg(1, randomNum2);
+  }
+  decideWinner(randomNum1, randomNum2);
+  return false;
 });
-
-decideWinner(randomNum1,randomNum2);
