@@ -23,7 +23,7 @@ let dice = document.querySelectorAll("img");
 let button = document.getElementsByClassName("btn")[0];
 let heading = document.querySelector("h1");
 
-button.addEventListener("click", function (e) {
+button.addEventListener("click", (e) => {
   randomNum1 = randomNumGen(1, 6);
   randomNum2 = randomNumGen(1, 6);
   if ((button.innerText = "Refresh Me")) {
